@@ -1,43 +1,43 @@
 ---
 export interface Props {
-    source?: string;
-    label?: string;
-    placeholder?: string;
+  source?: string;
+  label?: string;
+  placeholder?: string;
 }
 
 const { source, label, placeholder } = Astro.props;
 ---
 
 <div class="div-icons html">
-    <div>
-        <img class="icons" src={source} alt={placeholder} />
-    </div>
-    <label class="icon-label" for="logo">{label}</label>
+  <div>
+    <img class="icons" src={source} alt={placeholder} />
+  </div>
+  <label class="icon-label" for="logo">{label}</label>
 </div>
 
-<style>
-    .icons {
+<style lang="scss">
+  .div-icons {
+    display: flex;
+    align-items: center;
+
+    div {
+      border: 1px solid #ffffff;
+      box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.16);
+      border-radius: 30px;
+      padding: 14px;
+      margin-bottom: 8px;
+
+      .icons {
         width: 24px;
         height: 24px;
+      }
     }
 
     .icon-label {
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        padding-left: 16px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      padding-left: 16px;
     }
-
-    .div-icons {
-        display: flex;
-        align-items: center;
-    }
-
-    .div-icons > div {
-        border: 1px solid #ffffff;
-        box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.16);
-        border-radius: 30px;
-        padding: 14px;
-        margin-bottom: 8px;
-    }
+  }
 </style>

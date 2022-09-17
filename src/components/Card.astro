@@ -8,11 +8,9 @@ export interface Props {
 }
 
 const { link, title, description } = Astro.props;
-
-
 ---
 
-<li class="todo-card todo-card-v1">
+<li class="todo-card">
 	<a href={link}>
 		<h3>
 			{title}
@@ -24,26 +22,26 @@ const { link, title, description } = Astro.props;
 	</a>
 </li>
 
-<style>
-	h3 {
-		color: #E53151;
-	}
-
+<style lang="scss">
 	.todo-card {
 		padding: 28px 30px;
 		box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.16);
 		border-radius: 8px;
 		margin-bottom: 32px;
-	}
-	
-	.card-desc {
-		line-height: 24px;
-		padding-top: 24px;
-		color: black;
-	}
 
-	.todo-card:hover {
-		transform: scale(102%, 102%);
-		transition: 0.5s ease-out;
+		&:hover {
+			transform: scale(102%, 102%);
+			transition: 0.5s ease-out;
+		}
+
+		h3 {
+			color: #e53151;
+		}
+
+		.card-desc {
+			line-height: 24px;
+			padding-top: 24px;
+			color: black;
+		}
 	}
 </style>
