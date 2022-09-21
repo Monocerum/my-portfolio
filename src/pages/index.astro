@@ -1,51 +1,54 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import IconGroup from "../components/IconGroup.astro";
-import logoGithub from "../images/Vector.png";
-import "../styles/global.css";
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import IconGroup from '../components/IconGroup.astro';
+import logoGithub from '../images/Vector.png';
+import '../styles/global.css';
 
 const placeholder =
-	"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
-const fullname = "Roxanne Alimboyogen";
+	`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod 
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
+  consequat.`;
+const fullname = 'Roxanne Alimboyogen';
 ---
 
 <Layout title="Roxanne's Portfolio">
-	<main>
-		<div class="main-div">
-			<a href="https://github.com/Monocerum"
-				><img class="logo-github" src={logoGithub} alt="Github Logo" />
-			</a>
-			<h1>{fullname}</h1>
-		</div>
-		<div class="div-about">
-			<p class="main-about">
+  <main>
+    <div class="main-div">
+      <a href="https://github.com/Monocerum"
+      ><img class="logo-github" src={logoGithub} alt="Github Logo" />
+      </a>
+      <h1>{fullname}</h1>
+    </div>
+    <div class="div-about">
+      <p class="main-about">
 				Studying <strong>Computer Science</strong> at the <strong
-					>Polytechnic University of the Philippines</strong
-				>
-			</p>
-			<p class="main-description-1">
-				{placeholder}
-			</p>
-		</div>
-		<div class="tech-stack">
-			<h2>Tech Stack</h2>
-			<p class="main-description-2">
-				{placeholder}
-			</p>
-		</div>
-		<IconGroup />
-		<div class="blog">
-			<h2>Blog</h2>
-			<ul role="list" class="todo-card-list">
-				<Card link="/" title="Todo List" description={placeholder} />
-				<Card link="/" title="Todo List V2" description={placeholder} />
-				<Card link="/" title="Todo List V3" description={placeholder} />
-			</ul>
-		</div>
-		<a href="/" class="view-more">View more</a>
-		<div class="space"></div>
-	</main>
+        >Polytechnic University of the Philippines</strong
+        >
+      </p>
+      <p class="main-description-1">
+        {placeholder}
+      </p>
+    </div>
+    <div class="tech-stack">
+      <h2>Tech Stack</h2>
+      <p class="main-description-2">
+        {placeholder}
+      </p>
+    </div>
+    <IconGroup />
+    <div class="blog">
+      <h2>Blog</h2>
+      <ul role="list" class="todo-card-list">
+        <Card link="/" title="Todo List" description={placeholder} />
+        <Card link="/" title="Todo List V2" description={placeholder} />
+        <Card link="/" title="Todo List V3" description={placeholder} />
+      </ul>
+    </div>
+    <a href="/" class="view-more">View more</a>
+    <div class="space"></div>
+  </main>
 </Layout>
 
 <style lang="scss">
