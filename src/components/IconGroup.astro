@@ -1,21 +1,22 @@
 ---
-import Icon from "./Icon.astro";
+import Icon from './Icon.astro';
 
-import logoCss from "../images/css-logo.svg";
-import logoJs from "../images/js-logo.svg";
-import logoHtml from "../images/html-logo.svg";
+import logoCss from '../images/css-logo.svg';
+import logoJs from '../images/js-logo.svg';
+import logoHtml from '../images/html-logo.svg';
 ---
+
 <section>
-    <Icon source={logoHtml} label="HTML" placeholder="HTML Logo" />
-    <Icon source={logoCss} label="CSS" placeholder="CSS Logo" />
-    <Icon source={logoJs} label="Javascript" placeholder="Javascript Logo" />
+  <Icon source={logoHtml} label="HTML" placeholder="HTML Logo" />
+  <Icon source={logoCss} label="CSS" placeholder="CSS Logo" />
+  <Icon source={logoJs} label="Javascript" placeholder="Javascript Logo" />
 </section>
 
 <style>
-    @media only screen and (min-width: 600px) {
-        section {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-        }
+  @media only screen and (min-width: 600px) {
+    section {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
     }
+  }
 </style>

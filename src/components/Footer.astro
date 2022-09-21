@@ -1,40 +1,42 @@
 ---
-const fullname = "Roxanne Alimboyogen"
+const fullname = 'Roxanne Alimboyogen';
 ---
 
 <footer>
-    <p class="footer-copyrights">{fullname} &copy; 2022</p>
-    <p class="footer-powered">Powered by <a href="https://astro.build/" class="footer-astro">Astro</a></p>
+  <p class="footer-copyrights">{fullname} &copy; 2022</p>
+  <p class="footer-powered">
+    Powered by <a href="https://astro.build/" class="footer-astro">Astro</a>
+  </p>
 </footer>
 
-<style>
-    footer {
-        display: flex;
-        justify-content: space-between;
+<style lang="scss">
+  footer {
+    display: flex;
+    justify-content: space-between;
 
-        margin: 0 25%;
-        padding: 52px 0;
-        border-top: 1px solid #DDDDDD;
-    }
+    margin: 0 25%;
+    padding: 52px 0;
+    border-top: 1px solid #dddddd;
 
     .footer-astro {
-        color: #E53151;
-        text-decoration: none;
-    }
+      color: #e53151;
+      text-decoration: none;
 
-    .footer-astro:hover {
+      &:hover {
         font-weight: 600;
+      }
     }
+  }
 
-    @media only screen and (max-width: 1500px) {
-		footer {
-			margin: 0 20%;
-		}
-	}
+  @media only screen and (max-width: 1500px) {
+    footer {
+      margin: 0 20%;
+    }
+  }
 
-    @media only screen and (max-width: 1000px) {
-		footer {
-			margin: 0 15%;
-		}
-	}
+  @media only screen and (max-width: 1000px) {
+    footer {
+      margin: 0 15%;
+    }
+  }
 </style>

@@ -6,15 +6,14 @@ import logoGithub from '../images/Vector.png';
 import '../styles/global.css';
 
 const placeholder =
-	`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod
+	`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod 
   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
   consequat.`;
 const fullname = 'Roxanne Alimboyogen';
-
 ---
 
-<Layout title="Welcome to Roxanne's Portfolio.">
+<Layout title="Roxanne's Portfolio">
   <main>
     <div class="main-div">
       <a href="https://github.com/Monocerum"
@@ -42,21 +41,9 @@ const fullname = 'Roxanne Alimboyogen';
     <div class="blog">
       <h2>Blog</h2>
       <ul role="list" class="todo-card-list">
-        <Card 
-          link="/"
-          title="Todo List"
-          description={placeholder}
-        />
-        <Card 
-          link="/"
-          title="Todo List V2"
-          description={placeholder}
-        />
-        <Card 
-          link="/"
-          title="Todo List V3"
-          description={placeholder}
-        />
+        <Card link="/" title="Todo List" description={placeholder} />
+        <Card link="/" title="Todo List V2" description={placeholder} />
+        <Card link="/" title="Todo List V3" description={placeholder} />
       </ul>
     </div>
     <a href="/" class="view-more">View more</a>
@@ -64,79 +51,87 @@ const fullname = 'Roxanne Alimboyogen';
   </main>
 </Layout>
 
-<style>
+<style lang="scss">
 	main {
 		margin: 0 25%;
+		.main-div {
+			.logo-github {
+				width: 32px;
+
+				&:hover {
+					transform: scale(1.2);
+					transition: 0.5s ease-in;
+				}
+			}
+		}
+
+		.div-about {
+			.main-about {
+				padding: 10px 0 24px 0;
+			}
+
+			.main-description-1 {
+				padding-top: 8px;
+				line-height: 24px;
+			}
+		}
+
+		.tech-stack {
+			.main-description-2 {
+				line-height: 24px;
+				padding-bottom: 24px;
+			}
+		}
+
+		.blog {
+			.todo-card-list {
+				list-style-type: none;
+				padding: 0px;
+			}
+		}
+
+		.view-more {
+			display: flex;
+			text-align: center;
+			flex-direction: column;
+			color: #e53151;
+			text-decoration: none;
+
+			&:hover {
+				font-weight: 600;
+			}
+		}
+
+		.space {
+			height: 87px;
+		}
 	}
 
-	.main-div {
-		display: flex;
-		justify-content: space-between;
-		flex-direction: row-reverse;
-	}
-
-	.logo-github {
-		width: 32px;
-	}
-
-	.logo-github:hover {
-		transform: scale(1.2);
-		transition: 0.5s ease-in;
-	}
-
-	.main-about {
-		padding: 10px 0 24px 0;
-	}
-
-	.main-description-1,
-	.main-description-2 {
-		line-height: 24px;
-	}
-
-	.main-description-1 {
-		padding-top: 8px;
-	}
-
-	.main-description-2 {
-		padding-bottom: 24px;
-	}
-
-	.todo-card-list {
-		list-style-type: none;
-		padding: 0px;
-	}
-
-	.view-more {
-		display: flex;
-		text-align: center;
-		flex-direction: column;
-		color: #e53151;
-		text-decoration: none;
-	}
-
-	.view-more:hover {
-		font-weight: 600;
-	}
-
-	.space {
-		height: 87px;
+	@media only screen and (min-width: 1500px) {
+		.main-description-1 {
+			width: 700px;
+		}
 	}
 
 	@media only screen and (max-width: 1500px) and (min-width: 825px) {
 		main {
 			margin: 0 20%;
-		}
 
-		.main-about {
-			width: 519px;
-		}
+			.div-about {
+				.main-about {
+					width: 519px;
+				}
 
-		.main-description-1 {
-			width: 519px;
-		}
+				.main-description-1 {
+					width: 519px;
+				}
+			}
 
-		.main-description 2 {
-			width: 720px;
+			.tech-stack {
+				.main-description-2 {
+					width: 720px;
+				}
+			}
 		}
 	}
 
@@ -146,24 +141,26 @@ const fullname = 'Roxanne Alimboyogen';
 		}
 	}
 
-	@media only screen and (max-width: 650px) {
+	@media only screen and (min-width: 650px) {
 		.main-div {
-			display: block;
-			text-align: center;
-		}
-
-		.logo-github {
-			padding-bottom: 24px;
-		}
-
-		h1 {
-			padding-bottom: 24px;
+			display: flex;
+			justify-content: space-between;
+			flex-direction: row-reverse;
 		}
 	}
 
-	@media only screen and (min-width: 1500px) {
-		.main-description-1 {
-			width: 700px;
+	@media only screen and (max-width: 650px) and (min-width: 350px) {
+		.main-div {
+			display: block;
+			text-align: center;
+
+			.logo-github {
+				padding-bottom: 24px;
+			}
+
+			h1 {
+				padding-bottom: 24px;
+			}
 		}
 	}
 </style>

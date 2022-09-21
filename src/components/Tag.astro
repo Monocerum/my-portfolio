@@ -1,6 +1,6 @@
 ---
 export interface Props {
-	label: string;
+  label: string;
 }
 
 const { label } = Astro.props;
@@ -9,15 +9,11 @@ const { label } = Astro.props;
 <label class="tag-label label-js" for="tag-js">{label}</label>
 
 <style>
-    .tag-label {
-        padding: 5px 10px;
-        background: #F2F2F2;
-        border-radius: 4px;
-        line-height: 24px; 
-        color: #888888;
-    }
-
-    .label-html, .label-css {
-        margin-left: 8px;
-    }
+  .tag-label {
+    padding: 5px 10px;
+    background: #f2f2f2;
+    border-radius: 4px;
+    line-height: 24px;
+    color: #888888;
+  }
 </style>
