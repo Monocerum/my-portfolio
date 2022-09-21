@@ -1,5 +1,5 @@
 ---
-import TagGroup from "./TagGroup.astro";
+import TagGroup from './TagGroup.astro';
 
 export interface Props {
 	link?: string;
@@ -13,15 +13,15 @@ const { link, title, description } = Astro.props;
 ---
 
 <li class="todo-card todo-card-v1">
-	<a href={link}>
-		<h3>
-			{title}
-		</h3>
-		<TagGroup />
-		<p class="card-desc">
-			{description}
-		</p>
-	</a>
+  <a href={link}>
+    <h3>
+      {title}
+    </h3>
+    <TagGroup />
+    <p class="card-desc">
+      {description}
+    </p>
+  </a>
 </li>
 
 <style>
