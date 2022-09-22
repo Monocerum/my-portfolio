@@ -1,26 +1,17 @@
 ---
 import TagGroup from './TagGroup.astro';
 
-export interface Props {
-	link?: string;
-	title?: string;
-	description?: string;
-}
-
-const { link, title, description } = Astro.props;
+const posts = await Astro.glob('../posts/*.md');  
 ---
-
-<li class="todo-card">
-  <a href={link}>
-    <h3>
-      {title}
-    </h3>
-    <TagGroup />
-    <p class="card-desc">
-      {description}
-    </p>
-  </a>
-</li>
+{posts.map(post => (
+  <li class="todo-card">
+    <a href={`/${post.frontmatter.slug}`}>
+      <h3>{post.frontmatter.title}</h3>
+      <TagGroup />
+      <p class="card-desc">{post.frontmatter.description}</p>
+    </a>
+  </li>
+))}
 
 <style lang="scss">
 	.todo-card {
