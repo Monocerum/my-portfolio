@@ -1,38 +1,44 @@
 ---
 import TagGroup from './TagGroup.astro';
 
-const posts = await Astro.glob('../posts/*.md');  
+export interface Props {
+  link?: string;
+  title?: string;
+  description?: string;
+}
+
+const { link, title, description } = Astro.props;
 ---
-{posts.map(post => (
-  <li class="todo-card">
-    <a href={`/${post.frontmatter.slug}`}>
-      <h3>{post.frontmatter.title}</h3>
-      <TagGroup />
-      <p class="card-desc">{post.frontmatter.description}</p>
-    </a>
-  </li>
-))}
+
+<li class="todo-card">
+  <a href={link}>
+    <h3>{title}</h3>
+    <TagGroup />
+    <p class="card-desc">{description}</p>
+  </a>
+</li>
 
 <style lang="scss">
-	.todo-card {
-		padding: 28px 30px;
-		box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.16);
-		border-radius: 8px;
-		margin-bottom: 32px;
+  @import '../styles/variables.scss';
+  .todo-card {
+    padding: 28px 30px;
+    box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.16);
+    border-radius: 8px;
+    margin-bottom: 32px;
 
-		&:hover {
-			transform: scale(102%, 102%);
-			transition: 0.5s ease-out;
-		}
+    &:hover {
+      transform: scale(102%, 102%);
+      transition: 0.5s ease-out;
+    }
 
-		h3 {
-			color: #e53151;
-		}
+    h3 {
+      color: $red;
+    }
 
-		.card-desc {
-			line-height: 24px;
-			padding-top: 24px;
-			color: black;
-		}
-	}
+    .card-desc {
+      line-height: 24px;
+      padding-top: 24px;
+      color: $black;
+    }
+  }
 </style>
