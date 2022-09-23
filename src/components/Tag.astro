@@ -8,12 +8,13 @@ const { label } = Astro.props;
 
 <label class="tag-label label-js" for="tag-js">{label}</label>
 
-<style>
+<style lang="scss">
+  @import '../styles/variables.scss';
   .tag-label {
     padding: 5px 10px;
     background: #f2f2f2;
     border-radius: 4px;
     line-height: 24px;
-    color: #888888;
+    color: $lighter-grey;
   }
 </style>
