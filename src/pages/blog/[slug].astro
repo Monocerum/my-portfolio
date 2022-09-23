@@ -1,0 +1,80 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TagGroup from '../../components/TagGroup.astro';
+import '../../styles/global.scss';
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob('../../posts/*.md');
+
+  return posts.map(post => ({
+    params: {
+      slug: post.frontmatter.slug,
+    },
+    props: {
+      post,
+    },
+  }));
+}
+
+const { Content, frontmatter } = Astro.props.post;
+---
+
+<Layout title={frontmatter.title}>
+  <div class="page-content">
+    <a class="btn btn-back" href="/">&lt;&lt; Back</a>
+    <div class="todo-card">
+      <TagGroup />
+      <h1 class="title">Header 1</h1>
+      <Content />
+    </div>
+  </div>
+</Layout> 
+
+<style lang="scss">
+  @import '../../styles/variables.scss';
+  .page-content {
+		margin: 0 25%;
+
+    .todo-card {
+      line-height: 24px;
+      padding: 28px 30px;
+      box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.16);
+      border-radius: 8px;
+      margin: 24px 0 70px 0;
+
+      .title {
+        padding: 24px 0;
+        color: $almost-black;
+      }
+    }
+
+    .btn {
+        color: $grey;
+        border-radius: 4px;
+        margin-bottom: 24px;
+        line-height: 24px;
+        
+        &:hover {
+          color: $red;
+        }
+      }
+	}
+
+  @media only screen and (min-width: 825px) and (max-width: 1500px) {
+    .page-content {
+      margin: 0 20%;
+    }
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .page-content {
+      margin: 0 15%;
+    }
+  }
+
+  @media only screen and (max-width: 650px) {
+    .page-content {
+      margin: 0 10%;
+    }
+  }
+</style>

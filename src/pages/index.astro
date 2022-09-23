@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import IconGroup from '../components/IconGroup.astro';
 import logoGithub from '../images/Vector.png';
-import '../styles/global.css';
+import '../styles/global.scss';
 
 const placeholder =
 	`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod 
@@ -11,6 +11,9 @@ const placeholder =
   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
   consequat.`;
 const fullname = 'Roxanne Alimboyogen';
+
+const posts = await Astro.glob('../posts/*.md');
+const newPosts = posts.slice(0, 3);
 ---
 
 <Layout title="Roxanne's Portfolio">
@@ -40,15 +43,20 @@ const fullname = 'Roxanne Alimboyogen';
     <div class="blog">
       <h2>Blog</h2>
       <ul role="list" class="todo-card-list">
-        <Card />
+        {newPosts.map(post => (
+          <Card link = {`/blog/${post.frontmatter.slug}`}
+            title = {post.frontmatter.title}
+            description = {post.frontmatter.description}/>
+        ))}
       </ul>
     </div>
-    <a href="/" class="view-more">View more</a>
+    <a href="/blog" class="view-more">View more</a>
     <div class="space"></div>
   </main>
 </Layout>
 
 <style lang="scss">
+  @import '../styles/variables.scss';
 	main {
 		margin: 0 25%;
 		.main-div {
@@ -91,7 +99,7 @@ const fullname = 'Roxanne Alimboyogen';
 			display: flex;
 			text-align: center;
 			flex-direction: column;
-			color: #e53151;
+			color: $red;
 			text-decoration: none;
 
 			&:hover {
@@ -147,17 +155,21 @@ const fullname = 'Roxanne Alimboyogen';
 	}
 
 	@media only screen and (max-width: 650px) and (min-width: 350px) {
-		.main-div {
+    main {
+      margin: 0 10%;
+
+      .main-div {
 			display: block;
 			text-align: center;
 
-			.logo-github {
-				padding-bottom: 24px;
-			}
+        .logo-github {
+          padding-bottom: 24px;
+        }
 
-			h1 {
-				padding-bottom: 24px;
-			}
-		}
+        h1 {
+          padding-bottom: 24px;
+        }
+      }
+    }
 	}
 </style>
