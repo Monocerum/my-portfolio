@@ -1,37 +1,38 @@
+---
+const isBlog = Astro.url.pathname.includes('/blog');
+const pathname = isBlog ? '/blog' : Astro.url.pathname;
+---
+
 <header>
   <nav>
-    <a class="nav-link nav-home" href="/index">Home</a>
-    <a class="nav-link nav-blog" href="/blog">Blog</a>
+    <a class:list={['nav-link', {'nav-link--active':pathname==='/'}]} 
+      href="/">Home</a>
+    <a class:list={['nav-link', {'nav-link--active':pathname==='/blog'}]} 
+      href="/blog">Blog</a>
   </nav>
 </header>
 
 <style lang="scss">
+  @import '../styles/variables.scss';
   nav {
     margin: 0 25%;
     padding: 50px 0 70px 0;
 
     .nav-link {
       font-weight: 700;
-    }
+      color: $grey;
+      padding-right: 36px;
 
-    .nav-home {
-      color: #e63151;
-
-      &:hover {
-        color: #ff002c;
-        font-size: 17px;
-        transition: width 2s;
+      &:visited {
+        color: initial;
       }
     }
 
-    .nav-blog {
-      color: #555555;
-      padding-left: 36px;
+    .nav-link--active {
+      color: $red;
 
-      &:hover {
-        color: black;
-        font-size: 17px;
-        transition: width 2s;
+      &:visited {
+        color: $red;
       }
     }
   }
@@ -45,6 +46,12 @@
   @media only screen and (max-width: 1000px) {
     nav {
       margin: 0 15%;
+    }
+  }
+
+  @media only screen and (max-width: 650px) {
+    nav {
+      margin: 0 10%;
     }
   }
 </style>

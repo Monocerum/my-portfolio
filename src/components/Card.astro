@@ -2,9 +2,9 @@
 import TagGroup from './TagGroup.astro';
 
 export interface Props {
-	link?: string;
-	title?: string;
-	description?: string;
+  link?: string;
+  title?: string;
+  description?: string;
 }
 
 const { link, title, description } = Astro.props;
@@ -12,36 +12,33 @@ const { link, title, description } = Astro.props;
 
 <li class="todo-card">
   <a href={link}>
-    <h3>
-      {title}
-    </h3>
+    <h3>{title}</h3>
     <TagGroup />
-    <p class="card-desc">
-      {description}
-    </p>
+    <p class="card-desc">{description}</p>
   </a>
 </li>
 
 <style lang="scss">
-	.todo-card {
-		padding: 28px 30px;
-		box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.16);
-		border-radius: 8px;
-		margin-bottom: 32px;
+  @import '../styles/variables.scss';
+  .todo-card {
+    padding: 28px 30px;
+    box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.16);
+    border-radius: 8px;
+    margin-bottom: 32px;
 
-		&:hover {
-			transform: scale(102%, 102%);
-			transition: 0.5s ease-out;
-		}
+    &:hover {
+      transform: scale(102%, 102%);
+      transition: 0.5s ease-out;
+    }
 
-		h3 {
-			color: #e53151;
-		}
+    h3 {
+      color: $red;
+    }
 
-		.card-desc {
-			line-height: 24px;
-			padding-top: 24px;
-			color: black;
-		}
-	}
+    .card-desc {
+      line-height: 24px;
+      padding-top: 24px;
+      color: $black;
+    }
+  }
 </style>

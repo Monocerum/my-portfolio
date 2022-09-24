@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import '../styles/global.scss';
+
+const posts = await Astro.glob('../posts/*.md');
+---
+
+<Layout title="Blog">
+  <div class="blog-content">
+    <h1>Blog</h1>
+    <div class="todo-card">
+      {posts.map(post => (
+        <Card link = {`/blog/${post.frontmatter.slug}`}
+          title = {post.frontmatter.title}
+          description = {post.frontmatter.description}/>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+  
+<style lang="scss">
+  .blog-content {
+    margin: 0 25%;
+    list-style-type: none;
+
+    .todo-card {
+      margin: 32px 0 82px 0;
+    }
+  }
+
+  @media only screen and (min-width: 825px) and (max-width: 1500px) {
+    .blog-content {
+      margin: 0 20%;
+    }
+  }
+
+  @media only screen and (max-width: 650px) {
+    .blog-content {
+      margin: 0 10%;
+    }
+  }
+</style>

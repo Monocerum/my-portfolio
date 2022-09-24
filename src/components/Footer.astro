@@ -10,6 +10,8 @@ const fullname = 'Roxanne Alimboyogen';
 </footer>
 
 <style lang="scss">
+  @import '../styles/variables.scss';
+
   footer {
     display: flex;
     justify-content: space-between;
@@ -19,7 +21,7 @@ const fullname = 'Roxanne Alimboyogen';
     border-top: 1px solid #dddddd;
 
     .footer-astro {
-      color: #e53151;
+      color: $red;
       text-decoration: none;
 
       &:hover {
@@ -37,6 +39,12 @@ const fullname = 'Roxanne Alimboyogen';
   @media only screen and (max-width: 1000px) {
     footer {
       margin: 0 15%;
+    }
+  }
+
+  @media only screen and (max-width: 650px) {
+    footer {
+      margin: 0 10%;
     }
   }
 </style>
