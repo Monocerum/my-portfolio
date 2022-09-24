@@ -5,15 +5,16 @@ export interface Props {
   link?: string;
   title?: string;
   description?: string;
+  tags: string[];
 }
 
-const { link, title, description } = Astro.props;
+const { link, title, description, tags } = Astro.props;
 ---
 
 <li class="todo-card">
   <a href={link}>
     <h3>{title}</h3>
-    <TagGroup />
+    <TagGroup tags={tags}/>
     <p class="card-desc">{description}</p>
   </a>
 </li>

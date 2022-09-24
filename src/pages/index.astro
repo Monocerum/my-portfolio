@@ -44,9 +44,10 @@ const newPosts = posts.slice(0, 3);
       <h2>Blog</h2>
       <ul role="list" class="todo-card-list">
         {newPosts.map(post => (
-          <Card link = {`/blog/${post.frontmatter.slug}`}
-            title = {post.frontmatter.title}
-            description = {post.frontmatter.description}/>
+          <Card link={`/blog/${post.frontmatter.slug}`}
+            title={post.frontmatter.title}
+            description={post.frontmatter.description}
+            tags={post.frontmatter.tags}/>
         ))}
       </ul>
     </div>

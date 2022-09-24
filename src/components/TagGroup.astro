@@ -1,11 +1,18 @@
 ---
 import Tag from './Tag.astro';
+
+export interface Props {
+  tags: string[];
+}
+
+const { tags } = Astro.props;
+
 ---
 
 <div class="tags">
-  <Tag label="Javascript" />
-  <Tag label="HTML" />
-  <Tag label="CSS" />
+  {tags.map(tag => (
+    <Tag label={tag}/>
+  ))}
 </div>
 
 <style>

@@ -23,7 +23,7 @@ const { Content, frontmatter } = Astro.props.post;
   <div class="page-content">
     <a class="btn btn-back" href="/">&lt;&lt; Back</a>
     <div class="todo-card">
-      <TagGroup />
+      <TagGroup tags={frontmatter.tags}/>
       <h1 class="title">Header 1</h1>
       <Content />
     </div>
