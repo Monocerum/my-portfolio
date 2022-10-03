@@ -1,12 +1,12 @@
 ---
 export interface Props {
-  label: string;
+  label?: string;
 }
 
 const { label } = Astro.props;
 ---
 
-<label class="tag-label label-js" for="tag-js">{label}</label>
+<label class="tag-label label" for="tag">{label}</label>
 
 <style lang="scss">
   @import '../styles/variables.scss';
