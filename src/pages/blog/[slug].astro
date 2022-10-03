@@ -4,7 +4,7 @@ import TagGroup from '../../components/TagGroup.astro';
 import '../../styles/global.scss';
 
 export async function getStaticPaths() {
-  const posts = await Astro.glob('../../posts/*.md');
+  const posts = await Astro.glob('../../posts/blog/*.md');
 
   return posts.map(post => ({
     params: {
