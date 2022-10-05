@@ -1,15 +1,25 @@
 ---
 const isBlog = Astro.url.pathname.includes('/blog');
-const isProject = Astro.url.pathname.includes('project');
-const pathname = isBlog ? '/blog' : Astro.url.pathname;
-const pathnames = isProject ? '/project' : Astro.url.pathname;
+const isProject = Astro.url.pathname.includes('/project');
+
+function getPathname() {
+  if (isBlog===true) {
+    return '/blog';
+  } else if (isProject===true) {
+    return '/project';
+  } else {
+    return Astro.url.pathname;
+  }
+}
+
+const pathname = getPathname();
 ---
 
 <header>
   <nav>
     <a class:list={['nav-link', {'nav-link--active':pathname==='/'}]} 
       href="/">Home</a>
-    <a class:list={['nav-link', {'nav-link--active':pathnames==='/project'}]} 
+    <a class:list={['nav-link', {'nav-link--active':pathname==='/project'}]} 
       href="/project">Projects</a>
     <a class:list={['nav-link', {'nav-link--active':pathname==='/blog'}]} 
       href="/blog">Blog</a>
