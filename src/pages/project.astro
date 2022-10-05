@@ -10,13 +10,15 @@ const projects = await Astro.glob('../posts/project/*.md');
   <div class="project-content">
     <h1>Projects</h1>
     <div class="todo-card">
-      {projects.map(project => (
-        <Card link={`/project/${project.frontmatter.slug}`}
-          type={project.frontmatter.type}
-          title={project.frontmatter.title}
-          githubLink={project.frontmatter.githubLink}
-          liveLink={project.frontmatter.liveLink}/>
-      ))}
+      {
+        projects.map(project => (
+          <Card 
+            link={`/project/${project.frontmatter.slug}`}
+            type={project.frontmatter.type}
+            title={project.frontmatter.title}
+          />
+        ))
+      }
     </div>
   </div>
 </Layout>

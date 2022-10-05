@@ -5,7 +5,7 @@ import '../../styles/global.scss';
 export async function getStaticPaths() {
   const projects = await Astro.glob('../../posts/project/*.md');
 
-  return projects.map(project => ({
+  return projects.map((project) => ({
     params: {
       slug: project.frontmatter.slug,
     },
@@ -26,12 +26,12 @@ const { Content, frontmatter } = Astro.props.project;
       <Content />
     </div>
   </div>
-</Layout> 
+</Layout>
 
 <style lang="scss">
-  @import '../../styles/variables.scss';
+  @import "../../styles/variables.scss";
   .page-content {
-		margin: 0 25%;
+    margin: 0 25%;
     padding-bottom: 379px;
 
     .todo-card {
@@ -48,16 +48,16 @@ const { Content, frontmatter } = Astro.props.project;
     }
 
     .btn {
-        color: $grey;
-        border-radius: 4px;
-        margin-bottom: 24px;
-        line-height: 24px;
-        
-        &:hover {
-          color: $red;
-        }
+      color: $grey;
+      border-radius: 4px;
+      margin-bottom: 24px;
+      line-height: 24px;
+
+      &:hover {
+        color: $red;
       }
-	}
+    }
+  }
 
   @media only screen and (min-width: 825px) and (max-width: 1500px) {
     .page-content {

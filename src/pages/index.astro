@@ -22,8 +22,8 @@ const newProjects = projects.slice(0, 6);
 <Layout title="Roxanne's Portfolio">
   <main>
     <div class="main-div">
-      <a href="https://github.com/Monocerum"
-      ><img class="logo-github" src={logoGithub} alt="Github Logo" />
+      <a href="https://github.com/Monocerum"><img class="logo-github" 
+        src={logoGithub} alt="Github Logo" />
       </a>
       <h1>{fullname}</h1>
     </div>
@@ -46,28 +46,42 @@ const newProjects = projects.slice(0, 6);
     <div class="projects">
       <h2>Projects</h2>
       <section class="project-list">
-        {newProjects.map(project => (
-          <Card link={`/project/${project.frontmatter.slug}`}
-            type={project.frontmatter.type}
-            title={project.frontmatter.title}
-            githubLink={project.frontmatter.githubLink}
-            liveLink={project.frontmatter.liveLink}/>
-        ))}
+        {
+          newProjects.map(project => (
+            <Card
+              link={`/project/${project.frontmatter.slug}`}
+              type={project.frontmatter.type}
+              title={project.frontmatter.title}
+              githubLink={project.frontmatter.githubLink}
+              liveLink={project.frontmatter.liveLink}
+            />
+          ))
+        }
       </section>
     </div>
-    <a href="/project" class="view-more">View all projects</a>
+    {
+      projects.length > 4
+        && <a href="/project" class="view-more">View all projects</a>
+    }
     <div class="blog">
       <h2>Blog</h2>
       <ul role="list" class="todo-card-list">
-        {newPosts.map(post => (
-          <Card link={`/blog/${post.frontmatter.slug}`}
-            title={post.frontmatter.title}
-            description={post.frontmatter.description}
-            tags={post.frontmatter.tags}/>
-        ))}
+        {
+          newPosts.map(post => (
+            <Card
+              link={`/blog/${post.frontmatter.slug}`}
+              title={post.frontmatter.title}
+              description={post.frontmatter.description}
+              tags={post.frontmatter.tags}
+            />
+          ))
+        }
       </ul>
     </div>
-    <a href="/blog" class="view-more">View more</a>
+    { 
+      posts.length > 4 
+        && <a href="/blog" class="view-more">View more</a>
+    }
     <div class="space"></div>
   </main>
 </Layout>

@@ -10,9 +10,11 @@ const { tags } = Astro.props;
 ---
 
 <div class="tags">
-  {tags.map(tag => (
-    <Tag label={tag}/>
-  ))}
+  {
+    tags.map(tag => (
+      <Tag label={tag}/>
+    ))
+  }
 </div>
 
 <style>

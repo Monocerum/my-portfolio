@@ -10,18 +10,19 @@ const posts = await Astro.glob('../posts/blog/*.md');
   <div class="blog-content">
     <h1>Blog</h1>
     <div class="todo-card">
-      {posts.map(post => (
-        <Card
-          link={`/blog/${post.frontmatter.slug}`}
-          tags={post.frontmatter.tags}
-          title={post.frontmatter.title}
-          description={post.frontmatter.description}
-        />
-      ))}
+      {
+        posts.map(post => (
+          <Card
+            link={`/blog/${post.frontmatter.slug}`}
+            tags={post.frontmatter.tags}
+            title={post.frontmatter.title}
+            description={post.frontmatter.description}
+          />
+        ))
+      }
     </div>
   </div>
 </Layout>
-
   
 <style lang="scss">
   .blog-content {
