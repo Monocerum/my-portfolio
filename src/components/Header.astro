@@ -3,13 +3,15 @@ const isBlog = Astro.url.pathname.includes('/blog');
 const isProject = Astro.url.pathname.includes('/project');
 
 function getPathname() {
-  if (isBlog===true) {
+  if (isBlog) {
     return '/blog';
-  } else if (isProject===true) {
-    return '/project';
-  } else {
-    return Astro.url.pathname;
   }
+  
+  if (isProject) {
+    return '/project';
+  }
+
+  return Astro.url.pathname;
 }
 
 const pathname = getPathname();
