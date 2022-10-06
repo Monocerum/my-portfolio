@@ -60,7 +60,7 @@ const newProjects = projects.slice(0, 6);
       </section>
     </div>
     {
-      projects.length > 4
+      projects.length >= 4
         && <a href="/project" class="view-more">View all projects</a>
     }
     <div class="blog">
@@ -79,7 +79,7 @@ const newProjects = projects.slice(0, 6);
       </ul>
     </div>
     { 
-      posts.length > 4 
+      posts.length >= 4 
         && <a href="/blog" class="view-more">View more</a>
     }
     <div class="space"></div>
