@@ -19,12 +19,24 @@ const pathname = getPathname();
 
 <header>
   <nav>
-    <a class:list={['nav-link', {'nav-link--active':pathname==='/'}]} 
-      href="/">Home</a>
-    <a class:list={['nav-link', {'nav-link--active':pathname==='/project'}]} 
-      href="/project">Projects</a>
-    <a class:list={['nav-link', {'nav-link--active':pathname==='/blog'}]} 
-      href="/blog">Blog</a>
+    <a
+      class:list={['nav-link', {'nav-link--active':pathname==='/'}]} 
+      href="/"
+    >
+      Home
+    </a>
+    <a 
+      class:list={['nav-link', {'nav-link--active':pathname==='/project'}]} 
+      href="/project"
+    >
+      Projects
+    </a>
+    <a 
+      class:list={['nav-link', {'nav-link--active':pathname==='/blog'}]}
+      href="/blog"
+    >
+      Blog
+    </a>
   </nav>
 </header>
 
