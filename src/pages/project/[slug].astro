@@ -1,39 +1,38 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import TagGroup from '../../components/TagGroup.astro';
 import '../../styles/global.scss';
 
 export async function getStaticPaths() {
-  const posts = await Astro.glob('../../posts/blog/*.md');
+  const projects = await Astro.glob('../../posts/project/*.md');
 
-  return posts.map(post => ({
+  return projects.map((project) => ({
     params: {
-      slug: post.frontmatter.slug,
+      slug: project.frontmatter.slug,
     },
     props: {
-      post,
+      project,
     },
   }));
 }
 
-const { Content, frontmatter } = Astro.props.post;
+const { Content, frontmatter } = Astro.props.project;
 ---
 
 <Layout title={frontmatter.title}>
   <div class="page-content">
     <a class="btn btn-back" href="/">&lt;&lt; Back</a>
     <div class="todo-card">
-      <TagGroup tags={frontmatter.tags}/>
-      <h1 class="title">Header 1</h1>
+      <h1 class="title">{frontmatter.title}</h1>
       <Content />
     </div>
   </div>
-</Layout> 
+</Layout>
 
 <style lang="scss">
-  @import '../../styles/variables.scss';
+  @import "../../styles/variables.scss";
   .page-content {
-		margin: 0 25%;
+    margin: 0 25%;
+    padding-bottom: 379px;
 
     .todo-card {
       line-height: 24px;
@@ -43,22 +42,22 @@ const { Content, frontmatter } = Astro.props.post;
       margin: 24px 0 70px 0;
 
       .title {
-        padding: 24px 0;
+        padding-bottom: 24px;
         color: $almost-black;
       }
     }
 
     .btn {
-        color: $grey;
-        border-radius: 4px;
-        margin-bottom: 24px;
-        line-height: 24px;
-        
-        &:hover {
-          color: $red;
-        }
+      color: $grey;
+      border-radius: 4px;
+      margin-bottom: 24px;
+      line-height: 24px;
+
+      &:hover {
+        color: $red;
       }
-	}
+    }
+  }
 
   @media only screen and (min-width: 825px) and (max-width: 1500px) {
     .page-content {

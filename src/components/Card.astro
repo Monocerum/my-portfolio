@@ -1,21 +1,38 @@
 ---
 import TagGroup from './TagGroup.astro';
-
 export interface Props {
   link?: string;
-  title?: string;
+  title: string;
+  type?: string;
   description?: string;
-  tags: string[];
+  tags?: string[];
+  githubLink?: string;
+  liveLink?: string;
 }
 
-const { link, title, description, tags } = Astro.props;
+const { link, title, type, description, tags, githubLink, liveLink } = 
+Astro.props;
 ---
 
 <li class="todo-card">
   <a href={link}>
     <h3>{title}</h3>
-    <TagGroup tags={tags}/>
-    <p class="card-desc">{description}</p>
+    { 
+      tags && tags.length && type !== 'project' 
+      && <TagGroup tags={tags}/> 
+      <p class="card-desc">{description}</p> 
+    }
+    { 
+      type === 'project' 
+        && <div class="links">
+          <a href={liveLink} class="link link--view-live">
+            View live
+          </a>
+          <a href={githubLink} target="_blank" class="link link--view-github">
+            Github
+          </a>
+        </div> 
+    }
   </a>
 </li>
 
@@ -40,6 +57,16 @@ const { link, title, description, tags } = Astro.props;
       line-height: 24px;
       padding-top: 24px;
       color: $black;
+    }
+
+    .links {
+      padding-top: 16px;
+
+      .link {
+        line-height: 24px;
+        color: $red;
+        padding-right: 16px;
+      }
     }
   }
 </style>
